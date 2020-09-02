@@ -22,9 +22,12 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
       sourceAction: new codepipeline_actions.GitHubSourceAction({
         actionName: 'GitHub',
         output: sourceArtifact,
-        oauthToken: SecretValue.secretsManager('aws-lz-iam-pipeline/GitHubToken'),
-        owner: 'pgetech',
-        repo: 'cscoe-config-rules',
+        oauthToken: SecretValue.secretsManager('citrusoft'),
+        owner: 'citrusoft',
+        repo: 'cdkpipelines',
+        // oauthToken: SecretValue.secretsManager('aws-lz-iam-pipeline/GitHubToken'),
+        // owner: 'pgetech',
+        // repo: 'cscoe-config-rules',
       }),
 
        // How it will be built and synthesized
