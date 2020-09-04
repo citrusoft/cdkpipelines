@@ -1,4 +1,5 @@
-import { CdkpipelinesDemoStage } from './cdkpipelines-demo-stage';
+import { CdkpipelinesDeployStage } from './cdkpipelines-deploy-stage';
+// import { CdkpipelinesDemoStage } from './cdkpipelines-demo-stage';
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
@@ -42,7 +43,10 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
     });
 
     // This is where we add the application stages
-    pipeline.addApplicationStage(new CdkpipelinesDemoStage(this, 'PreProd', {
+    // pipeline.addApplicationStage(new CdkpipelinesDemoStage(this, 'PreProd', {
+    //   env: { account: '241689241215', region: 'us-west-2' }
+    // }));
+    pipeline.addApplicationStage(new CdkpipelinesDeployStage(this, 'Deploy', {
       env: { account: '241689241215', region: 'us-west-2' }
     }));
   }
